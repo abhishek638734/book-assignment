@@ -28,24 +28,23 @@ const books = [
   { title: 'The Alchemist', author: 'Paulo Coelho', rating: 4.3 },
 ];
 
-// Middleware
+
 app.use(cors());
 app.use(express.json());
 
-// Serve static files from React
+
 app.use(express.static(path.resolve(__dirname, 'dist')));
 
-// API Route
+
 app.get('/books', (req, res) => {
   res.json(books);
 });
 
-// Catch-all to serve index.html for React Router
+
 app.get('*', (req, res) => {
   res.sendFile(path.resolve(__dirname, 'dist', 'index.html'));
 });
 
-// Start server
 app.listen(PORT, '0.0.0.0', () => {
   console.log(`Server is running on http://localhost:${PORT}`);
 });
