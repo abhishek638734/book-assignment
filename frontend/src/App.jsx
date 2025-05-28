@@ -8,7 +8,7 @@ function App() {
   const [showBooks, setShowBooks] = useState(false);
 
   useEffect(() => {
-    fetch('http://localhost:5000/books')
+    fetch('https://a522-2409-40e3-2094-8ef4-ad40-3f97-25dc-5db.ngrok-free.app/books')
       .then(res => res.json())
       .then(data => {
         setBooks(data);
