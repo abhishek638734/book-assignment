@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "assignment",
   "main": "index.js",
+  "type": "commonjs",
   "scripts": {
     "start": "nodemon server.js"
   },
