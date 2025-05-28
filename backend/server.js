@@ -5,9 +5,7 @@ const path = require('path');
 const app = express();
 
 
-app.use(cors({
-  origin: '*', 
-}));
+app.use(cors());
 
 
 const books = [
@@ -33,13 +31,17 @@ const books = [
   { title: 'The Alchemist', author: 'Paulo Coelho', rating: 4.3 },
 ];
 
-
 app.get('/books', (req, res) => {
   res.json(books);
 });
 
+app.use(express.static(path.join(__dirname, 'build')));
+
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, 'build', 'index.html'));
+});
 
 const PORT = 5000;
-app.listen(PORT, () => {
+app.listen(PORT, '0.0.0.0', () => {
   console.log(`Server is running on http://localhost:${PORT}`);
 });

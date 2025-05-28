@@ -8,7 +8,7 @@ function App() {
   const [showBooks, setShowBooks] = useState(false);
 
   useEffect(() => {
-    fetch('http://localhost:5000/books')
+    fetch('/books')
       .then(res => res.json())
       .then(data => {
         setBooks(data);
